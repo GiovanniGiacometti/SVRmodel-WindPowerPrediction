@@ -31,7 +31,7 @@ if __name__ == "__main__":
                         model = Pipeline([
                             ("wind_direction_conversion", WindDirectionTransformer()),
                             ('min_max_scaling', StandardScaler()),
-                            ('svr', SVR(C = c, epsilon=eps))
+                            ('svr', SVR(C = c, epsilon=eps, gamma = gamma))
                         ])
 
                         
@@ -45,7 +45,6 @@ if __name__ == "__main__":
                             evaluate(y_train, y_test, model.predict( X.iloc[train].copy()), predictions)
 
                         log(["C", "epsilon","gamma"],[c, eps,gamma])
-                        save_model(model=model)
-                
+                        
 
         

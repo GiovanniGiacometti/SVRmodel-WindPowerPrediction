@@ -29,9 +29,8 @@ def get_dataframe():
 def set_mlflow(name):
     mlflow.set_experiment(name)    
 
-def save_model(model):
-        mlflow.pyfunc.get_model_dependencies("")
-        mlflow.pyfunc.save_model("SVRmodel", python_model=model)
+def save_model(name, model):
+        mlflow.pyfunc.save_model(name, python_model=model, conda_env = "conda.yaml")
 
 
 def log(names_list, params_list):
