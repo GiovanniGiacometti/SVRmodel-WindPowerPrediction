@@ -6,6 +6,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from wind_direction_transformer import WindDirectionTransformer
 from sklearn.svm import SVR
+from sklearn.model_selection import TimeSeriesSplit
+
 
 
 class SVRWindPowerPrediction(mlflow.pyfunc.PythonModel):
@@ -30,7 +32,18 @@ if __name__ == "__main__":
         best_eps = 0.4
         best_gamma = "auto"
 
+        X,y = get_dataframe()
+
+        number_of_splits = 5
+
         model = SVRWindPowerPrediction(best_C, best_eps, best_gamma)
+
+        for train, test in TimeSeriesSplit(number_of_splits).split(X,y):
+            X_train = X.iloc[train].copy()
+            y_train = y.iloc[train]
+            X_test = X.iloc[test].copy()
+            y_test = y.iloc[test]
+            model = model.fit(X_train, y_train)
 
         save_model("WIND_SVR_model", model)
 
