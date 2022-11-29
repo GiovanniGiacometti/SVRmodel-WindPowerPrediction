@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 
 # mlflow.set_tracking_uri("http://training.itu.dk:5000/")
 
-set_mlflow("giog - knn+fold")
+mlflow.set_experiment("giog - knn+fold")
 
 if __name__ == "__main__":
     with mlflow.start_run():

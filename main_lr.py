@@ -10,7 +10,7 @@ from sklearn.linear_model import LinearRegression
 
 
 
-set_mlflow("giog - polylr+fold")
+mlflow.set_experiment("giog - polylr+fold")
 
 if __name__ == "__main__":
     with mlflow.start_run():

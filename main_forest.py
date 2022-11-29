@@ -9,7 +9,7 @@ from wind_direction_transformer import WindDirectionTransformer
 
 
 
-set_mlflow("giog - randomforest+fold")
+mlflow.set_experiment("giog - randomforest+fold")
 
 if __name__ == "__main__":
     with mlflow.start_run():

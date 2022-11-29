@@ -11,7 +11,7 @@ from sklearn.svm import SVR
 
 
 mlflow.set_tracking_uri("http://training.itu.dk:5000/")
-set_mlflow("giog - svr")
+mlflow.set_experiment("giog - svr")
 
 if __name__ == "__main__":
    
