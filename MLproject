@@ -1,6 +1,7 @@
 name: WIND_SVR_model
 
-entry_points:
+conda_env: conda.yaml
 
+entry_points:
   main:
     command: "python main_model.py"

@@ -1,5 +1,4 @@
 import mlflow
-import sys
 
 from util import *
 from sklearn.pipeline import Pipeline
@@ -45,7 +44,7 @@ if __name__ == "__main__":
             y_test = y.iloc[test]
             model = model.fit(X_train, y_train)
 
-        save_model("WIND_SVR_model", model)
+        mlflow.pyfunc.save_model("WIND_SVR_model", python_model=model, conda_env = "conda.yaml")
 
         
                         

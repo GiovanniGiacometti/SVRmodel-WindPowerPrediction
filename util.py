@@ -26,11 +26,8 @@ def get_dataframe():
     y = df["Total"]
     return X,y
 
-def set_mlflow(name):
-    mlflow.set_experiment(name)    
 
-def save_model(name, model):
-    mlflow.pyfunc.save_model(name, python_model=model, conda_env = "conda.yaml")
+    
 
 
 def log(names_list, params_list):

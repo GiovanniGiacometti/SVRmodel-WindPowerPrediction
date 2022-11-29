@@ -1,3 +1,4 @@
 mlruns
 __pycache__
 WIND_SVR_model
+requirements.txt
